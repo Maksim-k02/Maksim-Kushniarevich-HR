@@ -1,6 +1,8 @@
 package com.epam.brest.dao;
 
 import com.epam.brest.model.Department;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
@@ -13,24 +15,28 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
-public class DepartmentDaoJDBCImplIT implements DepartmentDao{
+public class DepartmentDaoJDBCImpl implements DepartmentDao{
+
+    private final Logger logger = LogManager.getLogger(DepartmentDaoJDBCImpl.class);
 
     private NamedParameterJdbcTemplate namedParameterJdbcTemplate;
+
     private final String SQL_ALL_DEPARTMENTS="select d.department_id, d.department_name from department d order by d.department_name";
     private final String SQL_CREATE_DEPARTMENT = "insert into department(department_name) values(:department_name)";
 
-    public DepartmentDaoJDBCImplIT(DataSource dataSource) {
+    public DepartmentDaoJDBCImpl(DataSource dataSource) {
         this.namedParameterJdbcTemplate = new NamedParameterJdbcTemplate(dataSource);
     }
 
     @Override
     public List<Department> findAll() {
+        logger.debug("Start: findAll()");
         return namedParameterJdbcTemplate.query(SQL_ALL_DEPARTMENTS,new DepartmentRowMapper());
     }
 
     @Override
     public Integer create(Department department) {
-
+        logger.debug("Start: create({})", department);
         //TODO: isDepartmentUnique throw new IllegalArgumentException
 
         SqlParameterSource sqlParameterSource =
