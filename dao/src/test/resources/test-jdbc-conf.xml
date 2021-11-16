@@ -5,7 +5,7 @@
        https://www.springframework.org/schema/beans/spring-beans.xsd">
 
 
-   <bean name = "departmentDao" class="com.epam.brest.dao.DepartmentDaoJDBCImpl">
+   <bean name = "departmentDao" class="com.epam.brest.dao.DepartmentDaoJDBCImplIT">
        <constructor-arg name = "dataSource" ref="dataSource"/>
    </bean>
 
