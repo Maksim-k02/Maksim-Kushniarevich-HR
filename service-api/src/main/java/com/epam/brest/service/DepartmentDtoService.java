@@ -8,8 +8,8 @@ public interface DepartmentDtoService {
 
     /**
      * Get list of department Dto.
+     *
      * @return list of department Dto.
      */
-
     List<DepartmentDto> findAllWithAvgSalary();
 }

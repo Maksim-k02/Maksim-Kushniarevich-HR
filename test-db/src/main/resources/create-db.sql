@@ -16,6 +16,6 @@ CREATE TABLE employee (
     email varchar(255) NOT NULL UNIQUE,
     salary int NOT NULL,
     department_id int NOT NULL,
-    CONSTRAINT employee_pk PRIMARY KEY (employee_id),
-    CONSTRAINT employee_department_fk FOREIGN KEY (department_id) REFERENCES department(department_id)
+        CONSTRAINT employee_pk PRIMARY KEY (employee_id),
+        CONSTRAINT employee_department_fk FOREIGN KEY (department_id) REFERENCES department(department_id)
 );

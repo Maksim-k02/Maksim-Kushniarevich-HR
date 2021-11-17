@@ -17,8 +17,6 @@
         <module>service</module>
         <module>web-app</module>
         <module>test-db</module>
-
-
     </modules>
 
     <properties>
@@ -38,19 +36,16 @@
 
     <dependencyManagement>
         <dependencies>
-
             <dependency>
                 <groupId>com.epam.brest</groupId>
                 <artifactId>model</artifactId>
                 <version>${project.version}</version>
             </dependency>
-
             <dependency>
                 <groupId>com.epam.brest</groupId>
                 <artifactId>dao-api</artifactId>
                 <version>${project.version}</version>
             </dependency>
-
             <dependency>
                 <groupId>com.epam.brest</groupId>
                 <artifactId>dao</artifactId>
@@ -65,23 +60,26 @@
 
             <dependency>
                 <groupId>com.epam.brest</groupId>
-                <artifactId>test-db</artifactId>
+                <artifactId>service</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
+            <dependency>
+                <groupId>com.epam.brest</groupId>
+                <artifactId>test-db</artifactId>
+                <version>${project.version}</version>
+            </dependency>
 
             <dependency>
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-context</artifactId>
                 <version>${spring.version}</version>
             </dependency>
-
             <dependency>
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-beans</artifactId>
                 <version>${spring.version}</version>
             </dependency>
-
             <dependency>
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-jdbc</artifactId>
@@ -105,7 +103,6 @@
                 <artifactId>spring-web</artifactId>
                 <version>${spring.version}</version>
             </dependency>
-
             <dependency>
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-webmvc</artifactId>
@@ -117,9 +114,6 @@
                 <artifactId>thymeleaf-spring5</artifactId>
                 <version>${thymeleaf-spring5.version}</version>
             </dependency>
-
-
-
             <dependency>
                 <groupId>javax.servlet</groupId>
                 <artifactId>javax.servlet-api</artifactId>
@@ -144,11 +138,26 @@
                 <version>1.4.200</version>
             </dependency>
 
+            <!--            tests-->
+
+            <dependency>
+                <groupId>org.junit.jupiter</groupId>
+                <artifactId>junit-jupiter-api</artifactId>
+                <version>${junit.version}</version>
+                <scope>test</scope>
+            </dependency>
 
             <dependency>
                 <groupId>org.junit.jupiter</groupId>
                 <artifactId>junit-jupiter-engine</artifactId>
                 <version>${junit.version}</version>
+                <scope>test</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.hamcrest</groupId>
+                <artifactId>hamcrest-all</artifactId>
+                <version>${hamcrest.version}</version>
                 <scope>test</scope>
             </dependency>
         </dependencies>
@@ -157,7 +166,6 @@
     <build>
         <pluginManagement>
             <plugins>
-
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-surefire-plugin</artifactId>
@@ -200,6 +208,7 @@
                     </configuration>
                 </plugin>
 
+                <!-- Embedded Jetty HTTP Server for testing war application -->
                 <plugin>
                     <groupId>org.eclipse.jetty</groupId>
                     <artifactId>jetty-maven-plugin</artifactId>
@@ -216,7 +225,6 @@
             </plugins>
         </pluginManagement>
 
-
         <plugins>
 
             <plugin>
@@ -230,8 +238,4 @@
             </plugin>
         </plugins>
     </build>
-
-
-
-
 </project>

@@ -1,4 +1,3 @@
-
 package com.epam.brest.dao;
 
 import com.epam.brest.model.dto.DepartmentDto;

@@ -9,6 +9,11 @@ public interface DepartmentDao {
     List<Department> findAll();
 
     Integer create(Department department);
+
     Integer update(Department department);
+
     Integer delete(Integer departmentId);
+
+    Integer count();
+
 }

@@ -1,7 +1,9 @@
 package com.epam.brest.model;
 
 public class Department {
+
     private Integer departmentId;
+
     private String departmentName;
 
     public Department() {

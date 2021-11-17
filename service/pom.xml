@@ -14,7 +14,6 @@
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
-        <junit-jupiter-api.version>5.8.1</junit-jupiter-api.version>
     </properties>
 
     <dependencies>
@@ -48,13 +47,9 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-test</artifactId>
         </dependency>
-
-
-
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
-            <version>${junit-jupiter-api.version}</version>
         </dependency>
 
         <dependency>
@@ -66,8 +61,5 @@
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
         </dependency>
-
-
-
     </dependencies>
 </project>
