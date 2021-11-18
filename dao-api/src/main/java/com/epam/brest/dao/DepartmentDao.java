@@ -7,6 +7,7 @@ import java.util.List;
 public interface DepartmentDao {
 
     List<Department> findAll();
+    Department getDepartmentById(Integer departmentId);
 
     Integer create(Department department);
 
