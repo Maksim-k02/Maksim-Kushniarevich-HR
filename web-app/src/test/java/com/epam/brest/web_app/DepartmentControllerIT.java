@@ -106,4 +106,17 @@ class DepartmentControllerIT {
         // VERIFY
         assertEquals(departmentsSizeBefore, departmentService.count() - 1);
     }
+
+    @Test
+    public void shouldOpenEditDepartmentPageById() throws Exception {
+        mockMvc.perform(
+                        MockMvcRequestBuilders.get("/department/1")
+                ).andDo(MockMvcResultHandlers.print())
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andExpect(MockMvcResultMatchers.content().contentType("text/html;charset=UTF-8"))
+                .andExpect(view().name("department"))
+                .andExpect(model().attribute("isNew", is(false)))
+                .andExpect(model().attribute("department", hasProperty("departmentId", is(1))))
+                .andExpect(model().attribute("department", hasProperty("departmentName", is("IT"))));
+    }
 }
