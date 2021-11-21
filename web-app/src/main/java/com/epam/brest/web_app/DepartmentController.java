@@ -76,4 +76,12 @@ public class DepartmentController {
         this.departmentService.create(department);
         return "redirect:/departments";
     }
+
+    @PostMapping(value = "/department/{id}")
+    public String updateDepartment(Department department) {
+
+        logger.debug("updateDepartment({}, {})", department);
+        this.departmentService.update(department);
+        return "redirect:/departments";
+    }
 }
