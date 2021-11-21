@@ -16,7 +16,7 @@
     <mvc:annotation-driven/>
 
     <!-- Component scan for @Controller, @Service... annotations -->
-    <context:component-scan base-package="com.epam.brest*"/>
+    <context:component-scan base-package="com.epam.brest.*"/>
 
     <import resource="classpath*:test-db.xml"/>
 
@@ -38,6 +38,15 @@
 
     <bean id="departmentService" class="com.epam.brest.service.impl.DepartmentServiceImpl">
         <constructor-arg name="departmentDao" ref="departmentDao"/>
+    </bean>
+
+    <bean class="org.springframework.context.support.PropertySourcesPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <value>classpath*:test-db.properties</value>
+                <value>classpath*:sql-department.properties</value>
+            </list>
+        </property>
     </bean>
 
     <!-- Thymeleaf Template Resolver -->
@@ -67,4 +76,10 @@
         <property name="characterEncoding" value="UTF-8" />
     </bean>
 
+
+    <!--    <bean class="com.epam.brest.web_app.MvcMappingExceptionResolver">-->
+    <!--        <property name="defaultErrorView" value="error"/>-->
+    <!--        <property name="exceptionAttribute" value="exception"/>-->
+    <!--        <property name="warnLogCategory" value="warn"/>-->
+    <!--    </bean>-->
 </beans>
